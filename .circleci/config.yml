@@ -14,7 +14,7 @@ jobs:
       - image: "circleci/python:3.6.4"
     steps:
       - checkout
-      - run: echo jmir-`date "+%Y-%m-%d-%H"`
+      - run: echo "hello"; echo jmir-`date "+%Y-%m-%d-%H"`
         
        
 
