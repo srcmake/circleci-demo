@@ -15,11 +15,6 @@ jobs:
     steps:
       - checkout
       - run: echo "hello"; echo jmir-`date "+%Y-%m-%d-%H"`
-        
-       
-
-
-
 workflows:
   build_and_test:
     jobs:
