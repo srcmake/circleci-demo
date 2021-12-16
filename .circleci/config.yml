@@ -1,24 +1,24 @@
 version: 2.1
 
 jobs:
-  build:
-    working_directory: ~/circleci-python
-    docker:
-      - image: "circleci/python:3.6.4"
+
+  runner_build_test:
+    machine: true
+    resource_class: shubhankit/my-resource-class
     steps:
       - checkout
-      - run: python3 main.py
-  test:
-    working_directory: ~/circleci-python
-    docker:
-      - image: "circleci/python:3.6.4"
-    steps:
-      - checkout
-      - run: echo "hello"; echo jmir-`date "+%Y-%m-%d-%H"`
+      - run:
+          name: Install npm dependencies
+          command: |
+            npm install
+      - run:
+          name: Run Unit Tests
+          command: |
+            ./node_modules/mocha/bin/mocha test/ --reporter mochawesome --reporter-options reportDir=test-results,reportFilename=test-results
+      - store_artifacts:
+          path: test-results
+
 workflows:
-  build_and_test:
+  build_test_deploy:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
+      - runner_build_test
