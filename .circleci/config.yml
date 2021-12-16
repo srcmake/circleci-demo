@@ -8,13 +8,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install npm dependencies
-          command: |
-            npm install
-      - run:
           name: Run Unit Tests
           command: |
-            ./node_modules/mocha/bin/mocha test/ --reporter mochawesome --reporter-options reportDir=test-results,reportFilename=test-results
+            python3 main.py
       - store_artifacts:
           path: test-results
 
