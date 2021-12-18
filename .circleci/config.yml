@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Run Unit Tests
           command: |
-            sudo su; ls; echo "rootuser"
+            ls; echo "rootuser"
       - store_artifacts:
           path: test-results
 
