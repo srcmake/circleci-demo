@@ -9,7 +9,7 @@ jobs:
     steps:
       - slack/notify:
           event: pass
-          template: basic_fail_1
+          template: success_tagged_deploy_1
       - checkout
       - run:
           name: Run Unit Tests
