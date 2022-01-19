@@ -16,8 +16,21 @@ jobs:
           path: test-results
       - slack/notify:
           event: pass
-          template: success_tagged_deploy_1    
-
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "This deployment was completed successfully with $imageversion",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
 workflows:
   build_test_deploy:
     jobs:
