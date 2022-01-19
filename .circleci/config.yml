@@ -7,9 +7,6 @@ jobs:
     docker:
       - image: "circleci/python:3.6.4"
     steps:
-      - slack/notify:
-          event: pass
-          template: success_tagged_deploy_1
       - checkout
       - run:
           name: Run Unit Tests
@@ -17,6 +14,9 @@ jobs:
             ls; echo "rootuser"; sleep 60
       - store_artifacts:
           path: test-results
+      - slack/notify:
+          event: pass
+          template: success_tagged_deploy_1    
 
 workflows:
   build_test_deploy:
