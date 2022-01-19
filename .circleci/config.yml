@@ -1,11 +1,15 @@
 version: 2.1
-
+orbs: 
+  slack: circleci/slack@4.6.1
 jobs:
 
   runner_build_test:
     machine: true
     resource_class: shubhankit/my-resource-class
     steps:
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
       - checkout
       - run:
           name: Run Unit Tests
