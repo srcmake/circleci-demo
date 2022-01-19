@@ -4,8 +4,8 @@ orbs:
 jobs:
 
   runner_build_test:
-    machine: true
-    resource_class: shubhankit/my-resource-class
+    docker:
+      - image: "circleci/python:3.6.4"
     steps:
       - slack/notify:
           event: fail
