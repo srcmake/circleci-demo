@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Run Unit Tests
           command: |
-            ls; echo "rootuser"
+            ls; echo "rootuser"; sleep 60
       - store_artifacts:
           path: test-results
 
