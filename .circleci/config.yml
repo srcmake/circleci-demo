@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Run Unit Tests
           command: |
-            ls; echo "rootuser"; sleep 2; echo `date "+%Y-%m-%d-%H"`
+            ls; echo "rootuser"; sleep 2; echo $`date "+%Y-%m-%d-%H"`
       - store_artifacts:
           path: test-results
       - slack/notify:
@@ -24,7 +24,7 @@ jobs:
                   "fields": [
                     {
                       "type": "plain_text",
-                      "text": "This deployment was completed successfully with `date "+%Y-%m-%d-%H"`",
+                      "text": "This deployment was completed successfully with $`date "+%Y-%m-%d-%H"`",
                       "emoji": true
                     }
                   ]
