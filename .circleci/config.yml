@@ -15,7 +15,7 @@ jobs:
       - store_artifacts:
           path: test-results
       - slack/notify:
-          event: pass
+          event: always
           custom: |
             {
               "blocks": [
