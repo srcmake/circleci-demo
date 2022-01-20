@@ -24,7 +24,7 @@ jobs:
                   "fields": [
                     {
                       "type": "plain_text",
-                      "text": "This deployment was completed successfully with",
+                      "text": "This deployment was completed successfully with $image",
                       "emoji": true
                     }
                   ]
