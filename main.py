@@ -6,3 +6,4 @@ def SayHello():
 
 if __name__ == '__main__':
         SayHello()
+        echo "some new code"
